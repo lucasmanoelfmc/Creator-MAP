@@ -8,10 +8,15 @@ public class Disciplina {
     private Collection<Professor> professores;
     private Collection<Aluno> alunos;
 
+    private int registroDisciplina;
+
     private int idProfessores;
     private int idAlunos;
 
-    public Disciplina(String nome, Collection<Professor> professores, Collection<Aluno> alunos) {
+    public Disciplina(int idDisciplinas, String nome) {
+        
+        this.registroDisciplina = idDisciplinas;
+        
         this.setNome(nome);
         
         this.idProfessores = 0;
