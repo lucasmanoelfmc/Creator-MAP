@@ -1,23 +1,25 @@
 package classes;
-import java.util.Collection;
-import java.util.Vector;
+//import java.util.Collection;
+//import java.util.Vector;
 
 public class Disciplina {
     private String nome;
 
-    private Collection<Professor> professores;
-    private Collection<Aluno> alunos;
+    private Professor professores;
+    private Aluno alunos;
 
-    private int idAlunos;
-    private int idProfessores;
+    //private int idAlunos;
+    //private int idProfessores;
 
     public Disciplina(String nome) {
         this.setNome(nome);
-        this.idAlunos = 0;
-        this.idProfessores = 0;
+        //this.idAlunos = 0;
+        //this.idProfessores = 0;
 
-        professores = new Vector<Professor>();
-        alunos = new Vector<Aluno>();
+        //professores = new Vector<Professor>();
+        //alunos = new Vector<Aluno>();
+        professores = new Professor(nome, 0);
+        alunos = new Aluno(nome, 0);
     }
 
     public String getNome() {
@@ -27,20 +29,21 @@ public class Disciplina {
         this.nome = nome;
     }
 
-    public Collection<Professor> getProfessores() {
+    public Professor getProfessores() {
         return professores;
     }
-    public void setProfessores(Collection<Professor> professores) {
+    public void setProfessores(Professor professores) {
         this.professores = professores;
     }
 
-    public Collection<Aluno> getAlunos() {
+    public Aluno getAlunos() {
         return alunos;
     }
-    public void setAlunos(Collection<Aluno> alunos) {
+    public void setAlunos(Aluno alunos) {
         this.alunos = alunos;
     }
 
+    /* 
     public void adicionarAluno(Aluno novoAluno){
         idAlunos++;
         alunos.add(novoAluno);
@@ -49,6 +52,17 @@ public class Disciplina {
     public void adicionarProfessor(Professor novoProfessor){
         idProfessores++;
         professores.add(novoProfessor);
+    }
+    */
+
+    public void adicionarAluno(String nome, int matricula){
+        //idAlunos++;
+        alunos = new Aluno(nome, matricula);
+    }
+
+    public void adicionarProfessor(String nome, int matricula){
+        //idProfessores++;
+        professores = new Professor(nome, matricula);
     }
 
 }

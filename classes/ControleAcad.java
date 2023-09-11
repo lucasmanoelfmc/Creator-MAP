@@ -1,19 +1,20 @@
 package classes;
-import java.util.Collection;
-import java.util.Vector;
+//import java.util.Collection;
+//import java.util.Vector;
 
 public class ControleAcad {
 
     private String nome;
-    private Collection<Disciplina> disciplinas;
+    private Disciplina disciplinas;
 
-    private int idDisciplinas;
+    //private int idDisciplinas;
 
     public ControleAcad(String nome) {
         this.setNome(nome);
-        this.idDisciplinas = 0;
+        //this.idDisciplinas = 0;
 
-        disciplinas = new Vector<Disciplina>();
+        //disciplinas = new Vector<Disciplina>();
+        disciplinas = new Disciplina(nome);
     }
     
     public String getNome() {
@@ -23,16 +24,24 @@ public class ControleAcad {
         this.nome = nome;
     }
 
-    public Collection<Disciplina> getDisciplinas() {
+    public Disciplina getDisciplinas() {
         return disciplinas;
     }
-    public void setDisciplinas(Collection<Disciplina> disciplinas) {
+    public void setDisciplinas(Disciplina disciplinas) {
         this.disciplinas = disciplinas;
     }
 
+
+    /* 
     public void adicionarDisciplina(Disciplina novaDisciplina){
         idDisciplinas++;
         disciplinas.add(novaDisciplina);
+    }
+    */
+
+    public void adicionarDisciplina(String nome){
+        //idDisciplinas++;
+        disciplinas = new Disciplina(nome);
     }
     
 }

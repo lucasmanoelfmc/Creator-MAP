@@ -26,6 +26,9 @@ public class RDM {
         this.aluno = aluno;
     }
 
-    
+    public void adicionarAluno(String nome, int matricula){
+        //idAlunos++;
+        aluno = new Aluno(nome, matricula);
+    }
     
 }
