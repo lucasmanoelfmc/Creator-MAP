@@ -37,7 +37,9 @@ public class controle1 {
         ca2.addNovaDisciplina("Engenharia de Software 1");
         ca2.addNovaDisciplina("Calculo III");
 
-        System.out.println(ca2.getDisciplinas().getNome());
+        System.out.println(ca2.getDisciplinas());
+
+        
 
 
         
