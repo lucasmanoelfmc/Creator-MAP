@@ -1,12 +1,10 @@
 package classes;
 
 public class Professor {
-    private int registroProfessor;
     private String nome;
     private int matricula;
 
-    public Professor(int idProfessores, String nome, int matricula) {
-        this.registroProfessor = idProfessores;
+    public Professor(String nome, int matricula) {
         this.nome = nome;
         this.matricula = matricula;
     }

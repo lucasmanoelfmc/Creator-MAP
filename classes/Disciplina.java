@@ -8,24 +8,17 @@ public class Disciplina {
     private Collection<Professor> professores;
     private Collection<Aluno> alunos;
 
-    private int registroDisciplina;
-
-    private int idProfessores;
     private int idAlunos;
+    private int idProfessores;
 
-    public Disciplina(int idDisciplinas, String nome) {
-        
-        this.registroDisciplina = idDisciplinas;
-        
+    public Disciplina(String nome) {
         this.setNome(nome);
-        
-        this.idProfessores = 0;
         this.idAlunos = 0;
+        this.idProfessores = 0;
 
         professores = new Vector<Professor>();
         alunos = new Vector<Aluno>();
     }
-
 
     public String getNome() {
         return nome;
@@ -48,16 +41,14 @@ public class Disciplina {
         this.alunos = alunos;
     }
 
-
-    public void addNovoProfessor(String nome, int matricula){
-        idProfessores++;
-        professores.add(new Professor(idProfessores, nome, matricula));
-    }
-
-    public void addNovoAluno(String nome, int matricula){
+    public void adicionarAluno(Aluno novoAluno){
         idAlunos++;
-        alunos.add(new Aluno(idAlunos, nome, matricula));
+        alunos.add(novoAluno);
     }
-
+    
+    public void adicionarProfessor(Professor novoProfessor){
+        idProfessores++;
+        professores.add(novoProfessor);
+    }
 
 }

@@ -7,17 +7,13 @@ public class ControleAcad {
     private String nome;
     private Collection<Disciplina> disciplinas;
 
-    
-
     private int idDisciplinas;
 
     public ControleAcad(String nome) {
         this.setNome(nome);
-
         this.idDisciplinas = 0;
 
         disciplinas = new Vector<Disciplina>();
-
     }
     
     public String getNome() {
@@ -34,15 +30,9 @@ public class ControleAcad {
         this.disciplinas = disciplinas;
     }
 
-    public void addNovaDisciplina(String nome){
+    public void adicionarDisciplina(Disciplina novaDisciplina){
         idDisciplinas++;
-        disciplinas.add(new Disciplina(idDisciplinas, nome));
+        disciplinas.add(novaDisciplina);
     }
-
-    @Override
-    public String toString() {
-        return "ControleAcad [nome=" + nome + ", disciplinas=" + disciplinas + ", idDisciplinas=" + idDisciplinas + "]";
-    }
-    
     
 }

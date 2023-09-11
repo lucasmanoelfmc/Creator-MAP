@@ -4,7 +4,6 @@ import classes.Professor;
 import classes.RDM;
 import classes.ControleAcad;
 
-
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
@@ -19,35 +18,34 @@ public class Teste {
     private Aluno aluno2;
     private Professor professor2;
     
-
-
     @BeforeEach
     void setUp() throws Exception{
 
         //SUAP -> Redes de Computadores e Estruturas de Dados
-        ca1 = new ControleAcad("SUAP");
-        ca1.addNovaDisciplina("Redes de Computadores");
-        ca1.addNovaDisciplina("Estrutura de Dados");
 
+        ca1 = new ControleAcad("SUAP");
+
+        disciplina1 = new Disciplina("Redes de Computadores");
+        ca1.adicionarDisciplina(disciplina1);
+
+        disciplina2 = new Disciplina("Estrutura de Dados");
+        ca1.adicionarDisciplina(disciplina2);
 
         //Redes de Computadores -> Lucas (Aluno) e Mateus (Professor)
-        disciplina1 = new Disciplina(0, "Redes de Computadores");
 
-        disciplina1.addNovoAluno("Lucas", 111);
-        aluno1 = new Aluno(0, "Lucas", 111);
-
-        disciplina1.addNovoProfessor("Mateus", 1111);
-        professor1 = new Professor(0, "Mateus", 1111);
-
+        aluno1 = new Aluno("Lucas", 111);
+        disciplina1.adicionarAluno(aluno1);
+        
+        professor1 = new Professor("Mateus", 1111);
+        disciplina1.adicionarProfessor(professor1);
 
         //Estrutura de Dados -> Joao (Aluno) e Carlos (Professor)
-        disciplina2 = new Disciplina(0, "Estrutura de Dados");
 
-        disciplina2.addNovoAluno("Joao", 222);
-        aluno2 = new Aluno(0, "Joao", 222);
-
-        disciplina2.addNovoProfessor("Carlos", 2222);
-        professor2 = new Professor(0, "Carlos", 2222);
+        aluno2 = new Aluno("Joao", 222);
+        disciplina2.adicionarAluno(aluno2);
+        
+        professor2 = new Professor("Carlos", 2222);
+        disciplina2.adicionarProfessor(professor2);
 
     }
 
