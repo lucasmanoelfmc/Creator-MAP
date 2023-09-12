@@ -1,47 +1,65 @@
 package classes;
-//import java.util.Collection;
-//import java.util.Vector;
+import java.util.List;
+import java.util.ArrayList;
 
 public class ControleAcad {
 
-    private String nome;
-    private Disciplina disciplinas;
+    private List<Disciplina> disciplinas;
+    private List<Aluno> alunos;
+    private List<Professor> professores;
 
-    //private int idDisciplinas;
-
-    public ControleAcad(String nome) {
-        this.setNome(nome);
-        //this.idDisciplinas = 0;
-
-        //disciplinas = new Vector<Disciplina>();
-        disciplinas = new Disciplina(nome);
-    }
-    
-    public String getNome() {
-        return nome;
-    }
-    public void setNome(String nome) {
-        this.nome = nome;
+    public ControleAcad() {
+        disciplinas = new ArrayList<>();
+        alunos = new ArrayList<>();
+        professores = new ArrayList<>();
     }
 
-    public Disciplina getDisciplinas() {
+    //Funções de Adição do Controle Acadêmico
+
+    public void adicionarDisciplina(String nomeDisc){
+        disciplinas.add(new Disciplina(nomeDisc));
+    }
+
+    public void adicionarAluno(String nomeAl, int matriculaAl){
+        alunos.add(new Aluno(nomeAl, matriculaAl));
+    }
+
+    public void adicionarProfessor(String nomeProf, int matriculaProf){
+        professores.add(new Professor(nomeProf, matriculaProf));
+    }
+
+
+    //Funções de Vinculação
+
+    public void vincularDisciplinaAluno(Disciplina disciplina, Aluno aluno){
+        aluno.adicionarDisciplinaAl(disciplina);
+        disciplina.adicionarAlunoDisc(aluno);
+    }
+
+    public void vincularDisciplinaProfessor(Disciplina disciplina, Professor professor){
+        professor.adicionarDisciplinaProf(disciplina);
+        disciplina.adicionarProfessorDisc(professor);
+    }
+
+
+    //Gets e sets
+    public List<Disciplina> getDisciplinas() {
         return disciplinas;
     }
-    public void setDisciplinas(Disciplina disciplinas) {
+    public void setDisciplinas(List<Disciplina> disciplinas) {
         this.disciplinas = disciplinas;
     }
-
-
-    /* 
-    public void adicionarDisciplina(Disciplina novaDisciplina){
-        idDisciplinas++;
-        disciplinas.add(novaDisciplina);
+    public List<Aluno> getAlunos() {
+        return alunos;
     }
-    */
-
-    public void adicionarDisciplina(String nome){
-        //idDisciplinas++;
-        disciplinas = new Disciplina(nome);
+    public void setAlunos(List<Aluno> alunos) {
+        this.alunos = alunos;
+    }
+    public List<Professor> getProfessores() {
+        return professores;
+    }
+    public void setProfessores(List<Professor> professores) {
+        this.professores = professores;
     }
     
 }

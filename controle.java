@@ -4,19 +4,30 @@ public class controle {
 
     public static void main(String[] args) {
 
-        System.out.println("\t*********TESTE*********");
+        ControleAcad ca = new ControleAcad();
 
-        ControleAcad ca = new ControleAcad("SUAP");
-        
-        ca.adicionarDisciplina("Fisica III");
+        ca.adicionarAluno("Lucas", 111);
+        ca.adicionarAluno("Henio", 222);
+        ca.adicionarAluno("Fernando", 333);
 
-        ca.getDisciplinas().adicionarAluno("Jose", 123);
-        ca.getDisciplinas().adicionarProfessor("Marcos", 1234);
+        System.out.println(ca.getAlunos().get(0).getNomeAl());
+        System.out.println(ca.getAlunos().get(1).getMatriculaAl());
 
-        System.out.println("\tNome do Controle Academico: " + ca.getNome());
-        System.out.println("\tNome da disciplina: " + ca.getDisciplinas().getNome());
-        System.out.println("\tNome e matricula do aluno: " + ca.getDisciplinas().getAlunos().getNome() + "/" + ca.getDisciplinas().getAlunos().getMatricula());
-        System.out.println("\tNome e matricula do professor: " + ca.getDisciplinas().getProfessores().getNome() + "/" + ca.getDisciplinas().getProfessores().getMatricula());   
+        ca.adicionarProfessor("Ramon", 0);
+
+        ca.adicionarDisciplina("Estrutura de Dados");
+
+        ca.vincularDisciplinaProfessor(ca.getDisciplinas().get(0), ca.getProfessores().get(0));
+
+        System.out.println(ca.getDisciplinas().get(0).getProfessorDisc().getNomeProf());
+        System.out.println(ca.getProfessores().get(0).getNomeProf());
+
+        ca.getDisciplinas().get(0).adicionarAlunoDisc(ca.getAlunos().get(0));
+        ca.getDisciplinas().get(0).adicionarAlunoDisc(ca.getAlunos().get(1));
+        ca.getDisciplinas().get(0).adicionarAlunoDisc(ca.getAlunos().get(2));
+
+        ca.getDisciplinas().get(0).exibirListaAlunos();
 
     }
+
 }

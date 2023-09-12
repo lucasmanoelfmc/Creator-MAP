@@ -1,25 +1,36 @@
 package classes;
+import java.util.List;
+import java.util.ArrayList;
 
 public class Professor {
-    private String nome;
-    private int matricula;
 
-    public Professor(String nome, int matricula) {
-        this.nome = nome;
-        this.matricula = matricula;
+    private String nomeProf;
+    private int matriculaProf;
+    private List<Disciplina> disciplinasProf;
+
+    public Professor(String nomeProf, int matriculaProf) {
+        this.nomeProf = nomeProf;
+        this.matriculaProf = matriculaProf;
+        disciplinasProf = new ArrayList<>();
     }
 
-    public String getNome() {
-        return nome;
+    public void adicionarDisciplinaProf(Disciplina disciplina){
+        disciplinasProf.add(disciplina);
     }
-    public void setNome(String nome) {
-        this.nome = nome;
+
+
+    //Gets e sets
+    public String getNomeProf() {
+        return nomeProf;
     }
-    public int getMatricula() {
-        return matricula;
+    public void setNomeProf(String nomeProf) {
+        this.nomeProf = nomeProf;
     }
-    public void setMatricula(int matricula) {
-        this.matricula = matricula;
+    public int getMatriculaProf() {
+        return matriculaProf;
+    }
+    public void setMatriculaProf(int matriculaProf) {
+        this.matriculaProf = matriculaProf;
     }
 
 }

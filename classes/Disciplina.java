@@ -1,68 +1,55 @@
 package classes;
-//import java.util.Collection;
-//import java.util.Vector;
+import java.util.List;
+import java.util.ArrayList;
 
 public class Disciplina {
-    private String nome;
 
-    private Professor professores;
-    private Aluno alunos;
+    private String nomeDisc;
+    private Professor professorDisc;
+    private List<Aluno> alunosDisc;
 
-    //private int idAlunos;
-    //private int idProfessores;
-
-    public Disciplina(String nome) {
-        this.setNome(nome);
-        //this.idAlunos = 0;
-        //this.idProfessores = 0;
-
-        //professores = new Vector<Professor>();
-        //alunos = new Vector<Aluno>();
-        professores = new Professor(nome, 0);
-        alunos = new Aluno(nome, 0);
+    public Disciplina(String nomeDisc) {
+        this.nomeDisc = nomeDisc;
+        alunosDisc = new ArrayList<>();
     }
 
-    public String getNome() {
-        return nome;
-    }
-    public void setNome(String nome) {
-        this.nome = nome;
+    //Funções de Adição da Disciplina
+
+    public void adicionarProfessorDisc(Professor professorNovo){
+        professorDisc = professorNovo;
     }
 
-    public Professor getProfessores() {
-        return professores;
-    }
-    public void setProfessores(Professor professores) {
-        this.professores = professores;
+    public void adicionarAlunoDisc(Aluno alunoNovo){
+        alunosDisc.add(alunoNovo);
     }
 
-    public Aluno getAlunos() {
-        return alunos;
-    }
-    public void setAlunos(Aluno alunos) {
-        this.alunos = alunos;
-    }
-
-    /* 
-    public void adicionarAluno(Aluno novoAluno){
-        idAlunos++;
-        alunos.add(novoAluno);
-    }
-    
-    public void adicionarProfessor(Professor novoProfessor){
-        idProfessores++;
-        professores.add(novoProfessor);
-    }
-    */
-
-    public void adicionarAluno(String nome, int matricula){
-        //idAlunos++;
-        alunos = new Aluno(nome, matricula);
+    //Facilita o print
+    public void exibirListaAlunos(){
+        System.out.printf("[");
+        for(Aluno a : alunosDisc){
+            System.out.printf(a.getNomeAl() + ", ");
+        }
+        System.out.printf("]\n");
     }
 
-    public void adicionarProfessor(String nome, int matricula){
-        //idProfessores++;
-        professores = new Professor(nome, matricula);
+    //Gets e sets
+    public String getNomeDisc() {
+        return nomeDisc;
+    }
+    public void setNomeDisc(String nomeDisc) {
+        this.nomeDisc = nomeDisc;
+    }
+    public Professor getProfessorDisc() {
+        return professorDisc;
+    }
+    public void setProfessorDisc(Professor professorDisc) {
+        this.professorDisc = professorDisc;
+    }
+    public List<Aluno> getAlunosDisc() {
+        return alunosDisc;
+    }
+    public void setAlunosDisc(List<Aluno> alunosDisc) {
+        this.alunosDisc = alunosDisc;
     }
 
 }

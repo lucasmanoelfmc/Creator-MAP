@@ -4,54 +4,51 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 
-public class Teste {
+public class Teste{
 
-    private ControleAcad ca1;
-    
-    
+    private ControleAcad ca;
+
     @BeforeEach
     void setUp() throws Exception{
+        ca = new ControleAcad();
 
-        //SUAP -> Redes de Computadores
+        ca.adicionarDisciplina("Matematica Discreta");
 
-        ca1 = new ControleAcad("SUAP");
+        ca.adicionarProfessor("Antonio Carlos", 0);
+        ca.vincularDisciplinaProfessor(ca.getDisciplinas().get(0), ca.getProfessores().get(0));
 
-        //disciplina1 = new Disciplina("Redes de Computadores");
-        //ca1.adicionarDisciplina(disciplina1);
+        ca.adicionarAluno("Lucas", 0);
+        ca.vincularDisciplinaAluno(ca.getDisciplinas().get(0), ca.getAlunos().get(0));
 
-        ca1.adicionarDisciplina("Redes de Computadores");
-
-        //Redes de Computadores -> Lucas (Aluno) e Mateus (Professor)
+        ca.adicionarDisciplina("MAP");
+        ca.vincularDisciplinaAluno(ca.getDisciplinas().get(1), ca.getAlunos().get(0));
         
-        ca1.getDisciplinas().adicionarAluno("Lucas", 111);
-        ca1.getDisciplinas().adicionarAluno("Mateus", 1111);
-
     }
 
-    @Test //Testes verdadeiros
-    public void testeControleAcad(){
-        //Controle Academico1
-        Assertions.assertEquals(ca1.getNome(), "SUAP");
+    @Test 
+    public void testeAluno(){
+        Assertions.assertEquals(ca.getAlunos().get(0).getNomeAl(), "Lucas");
+        Assertions.assertEquals(ca.getAlunos().get(0).getMatriculaAl(), 0);
     }
 
-    @Test //Testes verdadeiros
-    public void testeDisciplinas(){
-        //Disciplina1
-        Assertions.assertEquals(ca1.getDisciplinas().getNome(), "Redes de Computadores");
+    @Test
+    public void testeProfessor(){
+        Assertions.assertEquals(ca.getProfessores().get(0).getNomeProf(), "Antonio Carlos");
+        Assertions.assertEquals(ca.getProfessores().get(0).getMatriculaProf(), 0);
     }
 
-    @Test //Testes verdadeiros
-    public void testeAlunos(){ 
-        //Aluno1
-        Assertions.assertEquals(ca1.getDisciplinas().getAlunos().getNome(), "Lucas");
-        Assertions.assertEquals(ca1.getDisciplinas().getAlunos().getMatricula(), 111);
+    @Test
+    public void testeDisciplinaMD(){
+        Assertions.assertEquals(ca.getDisciplinas().get(0).getNomeDisc(), "Matematica Discreta");
+        Assertions.assertEquals(ca.getDisciplinas().get(0).getProfessorDisc().getNomeProf(), "Antonio Carlos");
+        Assertions.assertEquals(ca.getDisciplinas().get(0).getAlunosDisc().get(0).getNomeAl(), "Lucas");
     }
 
-    @Test //Testes verdadeiros
-    public void testeProfessores(){ 
-        //Professor1
-        Assertions.assertEquals(ca1.getDisciplinas().getProfessores().getNome(), "Mateus");
-        Assertions.assertEquals(ca1.getDisciplinas().getProfessores().getMatricula(), 1111);
+    @Test
+    public void testeDisciplinaMAP(){
+        Assertions.assertEquals(ca.getDisciplinas().get(1).getNomeDisc(), "MAP");
+        Assertions.assertEquals(ca.getDisciplinas().get(1).getAlunosDisc().get(0).getNomeAl(), "Lucas");
     }
-    
+
+
 }
