@@ -32,5 +32,11 @@ public class Professor {
     public void setMatriculaProf(int matriculaProf) {
         this.matriculaProf = matriculaProf;
     }
-
+    public List<Disciplina> getDisciplinasProf() {
+        return disciplinasProf;
+    }
+    public void setDisciplinasProf(List<Disciplina> disciplinasProf) {
+        this.disciplinasProf = disciplinasProf;
+    }
+    
 }

@@ -22,11 +22,19 @@ public class controle {
         System.out.println(ca.getDisciplinas().get(0).getProfessorDisc().getNomeProf());
         System.out.println(ca.getProfessores().get(0).getNomeProf());
 
-        ca.getDisciplinas().get(0).adicionarAlunoDisc(ca.getAlunos().get(0));
-        ca.getDisciplinas().get(0).adicionarAlunoDisc(ca.getAlunos().get(1));
-        ca.getDisciplinas().get(0).adicionarAlunoDisc(ca.getAlunos().get(2));
+        ca.vincularDisciplinaAluno(ca.getDisciplinas().get(0), ca.getAlunos().get(0));
+        ca.vincularDisciplinaAluno(ca.getDisciplinas().get(0), ca.getAlunos().get(1));
+        ca.vincularDisciplinaAluno(ca.getDisciplinas().get(0), ca.getAlunos().get(2));
 
         ca.getDisciplinas().get(0).exibirListaAlunos();
+        
+        ca.getAlunos().get(0).getRegistro().printRDM(ca.getAlunos().get(0));
+        ca.getAlunos().get(0).getRegistro().printRDM(ca.getAlunos().get(1));
+
+        ca.adicionarDisciplina("Física Moderna");
+        ca.vincularDisciplinaAluno(ca.getDisciplinas().get(1), ca.getAlunos().get(2));
+
+        ca.getAlunos().get(0).getRegistro().printRDM(ca.getAlunos().get(2));
 
     }
 
