@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 
-public class Teste{
+public class TesteCA{
 
     private ControleAcad ca;
 
@@ -49,6 +49,5 @@ public class Teste{
         Assertions.assertEquals(ca.getDisciplinas().get(1).getNomeDisc(), "MAP");
         Assertions.assertEquals(ca.getDisciplinas().get(1).getAlunosDisc().get(0).getNomeAl(), "Lucas");
     }
-
 
 }
