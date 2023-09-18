@@ -1,45 +1,25 @@
+import classes.FigurasGeometricas;
 
 public class BrincandoComAsFigurasGeometricas {
+    public static void main(String[] args) {
+        FigurasGeometricas figurasGeometricas = new FigurasGeometricas();
+        figurasGeometricas.getRetangulo().setAltura(10);
+        figurasGeometricas.getRetangulo().setBase(5);
+        figurasGeometricas.getCirculo().setRaio(25);
+        figurasGeometricas.getQuadrado().setLado(7);
 
-	public static void main(String[] args) {
+        System.out.println("Perímetro do retângulo: " + figurasGeometricas.getRetangulo().getPerimetro());
+        System.out.printf("Perímetro do círculo: %.2f %n", figurasGeometricas.getCirculo().getPerimetro());
+        System.out.println("Perímeto do quadrado: " + figurasGeometricas.getQuadrado().getPerimetro());
 
-		FigurasGeometricas fig = new FigurasGeometricas(10, 5, 7, 25);
-		
-		int per = fig.p(FigurasGeometricas.R);
-		if (per == -234 || per == -2658) {
-			System.out.println("ERRO");
-		}
-		
-		per = fig.p(FigurasGeometricas.C);
-		if (per == -234 || per == -2658) {
-			System.out.println("ERRO");
-		}
+        System.out.println("Área do quadrado: " + figurasGeometricas.getQuadrado().getArea());
+        System.out.println("Área do retângulo: " + figurasGeometricas.getRetangulo().getArea());
+        System.out.println(figurasGeometricas.getAreasTodasFiguras());
+        System.out.printf("Área do círculo: %.2f %n", figurasGeometricas.getCirculo().getArea());
 
-		per = fig.p(-2);
-		if (per == -234 || per == -2658) {
-			System.out.println("ERRO");
-		}
+        System.out.println(figurasGeometricas.getCirculo().toString());
+        System.out.println(figurasGeometricas.getQuadrado().toString());
+        System.out.println(figurasGeometricas.getAtributosTodasFiguras());
 
-		per = fig.p(0);
-		if (per == -234 || per == -2658) {
-			System.out.println("ERRO");
-		}
-
-		fig.a(0);
-		fig.a(-1);
-		fig.a(2);
-		fig.a(1);
-		fig.a(-2);
-		
-		String inf = fig.toStringDaFigura(-1);
-		inf = fig.toStringDaFigura(1);
-		System.out.println(inf);
-		inf = fig.toStringDaFigura(0);
-		System.out.println(inf);
-		inf = fig.toStringDaFigura(4);
-		System.out.println(inf);
-		inf = fig.toStringDaFigura(2);
-		System.out.println(inf);
-	}
-
+    }
 }
