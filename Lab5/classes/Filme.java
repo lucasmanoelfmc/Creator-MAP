@@ -52,7 +52,7 @@ public class Filme extends GloboFilmes {
         this.elenco = elenco;
     }
 
-    //  String com o elenco do filme
+    //  String com todos os funcionários do filme
     public String exibirElenco(){
         int contador = 0;
         String listaFuncionarios = "[";
@@ -69,6 +69,22 @@ public class Filme extends GloboFilmes {
         return listaFuncionarios;
     }
 
+    //  retorna funcionários de acordo com a função especificada pelo parâmetro
+    private List<String> exibirFuncionarios(String funcao){
+        List<String> listaFuncionarios = new ArrayList<>();
+
+        //  quem disse que o tamanho do elenco é igual ao número de funções?
+        for(int i = 0; i < elenco.size(); i++){
+            for(int j = 0; j < elenco.get(i).getFuncoes().size(); j++){
+                if(elenco.get(i).getFuncoes().get(j) == funcao){
+                    listaFuncionarios.add(elenco.get(i).getNomeFuncionario());
+                }
+            }
+        }
+        
+        return listaFuncionarios;
+    }
+
     //  Print fácil das informações do filme
     public void fichaFilme(){
         System.out.println("****************************************");
@@ -77,7 +93,9 @@ public class Filme extends GloboFilmes {
         System.out.println("Nome do filme: " + nomeFilme);
         System.out.println("Ano do filme: " + anoFilme);
         System.out.println("Trilha sonora: " + trilhaSonora);
-        System.out.println("Elenco:\n" + exibirElenco());
+        System.out.println("Diretor(es): " + exibirFuncionarios("Diretor"));
+        System.out.println("Atores: " + exibirFuncionarios("Ator"));
+        System.out.println("Roteirista(s): " + exibirFuncionarios("Roteirista"));
         System.out.println("****************************************");
     }
 
