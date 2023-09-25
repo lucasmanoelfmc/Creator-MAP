@@ -2,17 +2,8 @@ package classes;
 import java.util.List;
 import java.util.ArrayList;
 
-//  informar todas as características de um dado filme (nome,
-//  diretor, roteirista, elenco, trilha sonora, ano, etc.).
+public class Filme extends GloboFilmes {
 
-//  nome: String nomeFilme;
-//  ano: int anoFilme;
-//  elenco: lista de todos os funcionários
-//  trilha sonora: List<String> trilhaSonora;
-//  diretor, roteirista, atores: printar o nome de todos os funcionários que
-//  estejam cadastrados com essas funções. ou seja, essas informações são obtidas do ELENCO
-
-public class Filme {
     private String nomeFilme;
     private int anoFilme;
     private List<String> trilhaSonora;
@@ -26,10 +17,14 @@ public class Filme {
     }
 
     //  Adicionar trilhaSonora
+    public void adicionarTrilhaSonora(String trackName){
+        trilhaSonora.add(trackName);
+    }
 
-    //  Adicionar funcionário no elenco
-
-    //  Vinculação filme-funcionário <-- Requer interface?
+    //  Adicionar funcionário no elenco --> Vínculo
+    void adicionarElenco(Funcionario funcionario){ // acesso apenas no pacote
+        elenco.add(funcionario);
+    }
 
     //  Gets e sets
     public String getNomeFilme() {
@@ -57,11 +52,33 @@ public class Filme {
         this.elenco = elenco;
     }
 
-    //  toString()
-    @Override
-    public String toString() {
-        return "Filme [nomeFilme=" + nomeFilme + ", anoFilme=" + anoFilme + ", trilhaSonora=" + trilhaSonora
-                + ", elenco=" + elenco + "]";
+    //  String com o elenco do filme
+    public String exibirElenco(){
+        int contador = 0;
+        String listaFuncionarios = "[";
+        for(Funcionario runner : elenco){
+            if(contador != elenco.size() - 1){
+                listaFuncionarios += runner.getNomeFuncionario() + ",\n";
+            }
+            else{
+                listaFuncionarios += runner.getNomeFuncionario();
+            }
+            contador++;
+        }
+        listaFuncionarios += "]";
+        return listaFuncionarios;
+    }
+
+    //  Print fácil das informações do filme
+    public void fichaFilme(){
+        System.out.println("****************************************");
+        System.out.println("--- * --- FICHA DO FILME --- * ---");
+        System.out.println("----------------------------------------");
+        System.out.println("Nome do filme: " + nomeFilme);
+        System.out.println("Ano do filme: " + anoFilme);
+        System.out.println("Trilha sonora: " + trilhaSonora);
+        System.out.println("Elenco:\n" + exibirElenco());
+        System.out.println("****************************************");
     }
 
 }
