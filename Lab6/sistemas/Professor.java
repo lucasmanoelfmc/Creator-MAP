@@ -2,16 +2,14 @@ package sistemas;
 
 public class Professor {
 
-    public String exibirAlocacaoDisciplina(){
-        String alocacao = "Alocação por Disciplina";
-
-        return alocacao;
+    public StringBuilder exibirAlocacaoDisciplina(String nomeProfessor){
+        StringBuilder alocacao = new StringBuilder("Alocação das disciplinas do professor ");
+        return alocacao.append(nomeProfessor + ":");
     }
 
-    public String exibirTempoCasa(String nomeProfessor){
-        String tempoCasa = "Tempo de Casa do Professor ";
-        tempoCasa += nomeProfessor;
-        return tempoCasa;
+    public StringBuilder exibirTempoCasa(String nomeProfessor){
+        StringBuilder tempoCasa = new StringBuilder("Tempo de casa do professor ");
+        return tempoCasa.append(nomeProfessor + ":");
     }
     
 }

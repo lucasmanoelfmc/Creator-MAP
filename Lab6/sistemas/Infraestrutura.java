@@ -2,10 +2,9 @@ package sistemas;
 
 public class Infraestrutura {
 
-    public String exibirAlocacaoSalas(){
-        String alocacao = "Alocação das Salas";
-
-        return alocacao;
+    public StringBuilder exibirAlocacaoSalas(String nomePredio){
+        StringBuilder alocacao = new StringBuilder("Alocação das salas do ");
+        return alocacao.append(nomePredio + ":");
     }
     
 }

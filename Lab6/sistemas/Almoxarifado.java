@@ -1,17 +1,45 @@
 package sistemas;
 
+import java.util.ArrayList;
+import exceptions.itemInexistenteException;
+
 public class Almoxarifado {
 
-    public String exibirEstoque(){
-        String estoque = "Estoque";
+    public StringBuilder exibirEstoque(ArrayList<String> itens, ArrayList<Integer> quantidades){
+        StringBuilder lista = new StringBuilder("");
 
-        return estoque;
+        runner(itens, quantidades, lista);
+
+        return lista;
     }
 
-    public String exibirPedidoCompra(){
-        String pedidoCompra = "Pedido de Compra";
+    public StringBuilder exibirPedidoCompra(String item, ArrayList<String> itens){
+        StringBuilder pedidoCompra = new StringBuilder("");
 
-        return pedidoCompra;
+        for(String i : itens){
+            if(i == item){
+                return pedidoCompra.append(item);
+            }
+        }
+
+        throw new itemInexistenteException("O item " + item + " não está registrado no sistema");
+        
+    }
+
+    private static void runner(ArrayList<String> itens, ArrayList<Integer> quantidades, 
+                                StringBuilder lista){
+
+        lista.append("[");
+
+        for(int i = 0; i < itens.size(); i++){
+            if(i < itens.size()-1){
+                lista.append(itens.get(i) + " x" + quantidades.get(i) + ",\n");
+            }
+            else{
+                lista.append(itens.get(i) + " x" + quantidades.get(i) + "]");
+            }
+        }
+        
     }
     
 }

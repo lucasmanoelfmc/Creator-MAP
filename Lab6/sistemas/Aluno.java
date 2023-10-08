@@ -1,17 +1,33 @@
 package sistemas;
 
+import java.util.ArrayList;
+import exceptions.alunoInexistenteException;
+
 public class Aluno {
 
-    public String exibirHistorico(){
-        String historico = "Histórico do Aluno";
+    public StringBuilder exibirHistorico(String nomeAluno, int matriculaAluno, ArrayList<Integer> matriculas){
+        StringBuilder historico = new StringBuilder("");
 
-        return historico;
+        for(Integer i : matriculas){
+            if(i == matriculaAluno){
+                return historico.append(nomeAluno);
+            }
+        }
+
+        throw new alunoInexistenteException("O aluno " + nomeAluno + " não está matriculado");
+        
     }
 
-    public String exibirRDM(){
-        String RDM = "Registro de Matrícula";
+    public StringBuilder exibirRDM(String nomeAluno, int matriculaAluno, ArrayList<Integer> matriculas){
+        StringBuilder RDM = new StringBuilder("");
 
-        return RDM;
+        for(Integer i : matriculas){
+            if(i == matriculaAluno){
+                return RDM.append(nomeAluno);
+            }
+        }
+
+        throw new alunoInexistenteException("O aluno " + nomeAluno + " não está matriculado");
     }
     
 }
