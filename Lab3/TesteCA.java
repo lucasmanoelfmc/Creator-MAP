@@ -1,7 +1,8 @@
-import classes.ControleAcad;
-
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import classesLab3.ControleAcad;
+
 import org.junit.jupiter.api.BeforeEach;
 
 public class TesteCA{

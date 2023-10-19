@@ -1,4 +1,4 @@
-import classes.ControleAcad;
+import classesLab3.ControleAcad;
 
 public class controle {
 

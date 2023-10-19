@@ -1,4 +1,4 @@
-import classes.FigurasGeometricas;
+import classesLab4.FigurasGeometricas;
 
 public class BrincandoComAsFigurasGeometricas {
     public static void main(String[] args) {
