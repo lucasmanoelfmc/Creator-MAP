@@ -7,22 +7,25 @@ public class Quadrado {
 
     public Quadrado(double lado) throws AtributoNaoPositivoException{
         if (lado <= 0){
-            throw new AtributoNaoPositivoException("Lado precisa ser positivo!");            
+            throw new AtributoNaoPositivoException("O lado precisa ser positivo!");            
         }
         this.lado = lado;
     }
 
-    //  Cálculo de área e perímetro
-    private double getAreaQuadrado(){
+    //  Gets
+    public double getLadoQuadrado(){
+        return lado;
+    }
+    public double getAreaQuadrado(){
         return Math.floor(lado * lado * 100) / 100;
     }
-    private double getPerimetroQuadrado(){
+    public double getPerimetroQuadrado(){
         return Math.floor(4 * lado * 100) / 100;
     }
 
     //  toString
     @Override
-    public String toString() throws AtributoNaoPositivoException{
+    public String toString() {
         return "Quadrado [Lado: " + lado + ", Area: " + getAreaQuadrado()
         + ", Perimetro: " + getPerimetroQuadrado() + "]";
     }

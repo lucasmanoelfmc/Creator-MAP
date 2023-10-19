@@ -1,6 +1,5 @@
 package Lab7.testesLab7;
 import Lab7.classesLab7.Circulo;
-import Lab7.exceptionsLab7.AtributoNaoPositivoException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
@@ -34,18 +33,33 @@ public class CirculoTeste {
     }
 
     @Test
+    public void testeRaio() {
+        Assertions.assertEquals(3, circulo1.getRaio());
+    }
+
+    @Test
+    public void testeArea() {
+        Assertions.assertEquals(28.26, circulo1.getAreaCirculo());
+    }
+
+    @Test
+    public void testeCircunferencia() {
+        Assertions.assertEquals(18.84, circulo1.getCircunferenciaCirculo());
+    }
+
+    @Test
     public void testeIgualdade() {
         Assertions.assertEquals(circulo2, circulo1);
     }
 
     @Test
-    public void testeExceptionZero() throws AtributoNaoPositivoException{
+    public void testeExceptionZero() {
         circulo3 = Circulo.getInstance(0);
         expectedEx.expectMessage("O raio precisa ser positivo!");
     }
 
     @Test
-    public void testeExceptionNegativo() throws AtributoNaoPositivoException{
+    public void testeExceptionNegativo() {
         circulo4 = Circulo.getInstance(-1);
         expectedEx.expectMessage("O raio precisa ser positivo!");
     }

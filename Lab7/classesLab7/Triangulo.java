@@ -5,12 +5,10 @@ public class Triangulo {
     
     private double lado1, lado2, lado3;
 
-    private static Triangulo err = null;
     private static Triangulo uniqueInstanceEquilatero = null;
     private static Triangulo uniqueInstanceIsosceles = null;
     private static Triangulo uniqueInstanceRetangulo = null;
     private static int cont = 0;
-
 
     private Triangulo(double lado1, double lado2, double lado3){
         this.lado1 = lado1;
@@ -55,11 +53,13 @@ public class Triangulo {
             return "retangulo";
         }
         else {
-            return "triangulo indefinido";
+            throw new TrianguloImpossivelException
+            ("Triângulo precisa ser equilátero, isósceles ou retângulo");
         }
     }
 
-    public static Triangulo getInstance(double lado1, double lado2, double lado3) {
+    public static Triangulo getInstance(double lado1, double lado2, double lado3) 
+    throws TrianguloImpossivelException{
         
         if (classificarTriangulo(lado1, lado2, lado3) == "equilatero"){
             return getInstanceEquilatero(lado1, lado2, lado3);
@@ -71,7 +71,8 @@ public class Triangulo {
             return getInstanceRetangulo(lado1, lado2, lado3);
         }
         else {
-            return err;
+            throw new TrianguloImpossivelException
+            ("Triângulo precisa ser equilátero, isósceles ou retângulo");
         }
         
     }
@@ -109,10 +110,20 @@ public class Triangulo {
         return uniqueInstanceRetangulo;
     }
 
+    //  Gets
+    public double getLado1(){
+        return lado1;
+    }
+    public double getLado2(){
+        return lado2;
+    }
+    public double getLado3(){
+        return lado3;
+    }
 
     //  toString
     @Override
-    public String toString() {
+    public String toString() throws TrianguloImpossivelException{
 
         if (classificarTriangulo(lado1, lado2, lado3) == "equilatero"){
             return "Triangulo Equilátero [Lado1: " + lado1 + ", Lado2: " + lado2 + ", Lado3: " + lado3 + "]";
@@ -124,7 +135,8 @@ public class Triangulo {
             return "Triangulo Retângulo [Lado1: " + lado1 + ", Lado2: " + lado2 + ", Lado3: " + lado3 + "]";
         }
         else {
-            return "triangulo indefinido";
+            throw new TrianguloImpossivelException
+            ("Triângulo precisa ser equilátero, isósceles ou retângulo");
         }
     }
 

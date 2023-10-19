@@ -24,11 +24,14 @@ public class Circulo {
         return uniqueInstance;
     }
 
-    //  Cálculo de área e circunferência
-    private double getAreaCirculo(){
+    //  Gets
+    public double getRaio() {
+        return raio;
+    }
+    public double getAreaCirculo(){
         return Math.floor(3.14 * raio * raio * 100) / 100;
     }
-    private double getCircunferenciaCirculo(){
+    public double getCircunferenciaCirculo(){
         return Math.floor(2 * 3.14 * raio * 100) / 100;
     }
 

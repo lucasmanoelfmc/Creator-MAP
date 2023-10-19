@@ -12,6 +12,9 @@ public class MainLab7 {
         System.out.println(fabricaFiguras.criarCirculo(3));
         System.out.println(fabricaFiguras.criarCirculo(4));
 
+        //  Triângulo: apenas um de cada tipo (equilátero, isósceles ou retângulo)
+        //  pode ser criado
+
         //  Triângulo Equilátero
         System.out.println("---------------------------------------------------------");
         System.out.println(fabricaFiguras.criarTriangulo(2, 2, 2));
