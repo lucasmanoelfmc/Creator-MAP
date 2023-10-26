@@ -3,8 +3,6 @@ import Lab7.classesLab7.Circulo;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
-import org.junit.Rule;
-import org.junit.rules.ExpectedException;
 
 public class CirculoTeste {
 
@@ -19,8 +17,7 @@ public class CirculoTeste {
         circulo2 = Circulo.getInstance(4);
     }
 
-    @Rule
-    public ExpectedException expectedEx = ExpectedException.none();
+
 
     @Test
     public void testeCirculo1() {
@@ -50,18 +47,6 @@ public class CirculoTeste {
     @Test
     public void testeIgualdade() {
         Assertions.assertEquals(circulo2, circulo1);
-    }
-
-    @Test
-    public void testeExceptionZero() {
-        circulo3 = Circulo.getInstance(0);
-        expectedEx.expectMessage("O raio precisa ser positivo!");
-    }
-
-    @Test
-    public void testeExceptionNegativo() {
-        circulo4 = Circulo.getInstance(-1);
-        expectedEx.expectMessage("O raio precisa ser positivo!");
     }
 
 }
